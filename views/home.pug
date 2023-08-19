@@ -1,0 +1,72 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Home
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./hstyle.css
+    body 
+        div#main
+            div.na    
+                    nav 
+                        ul 
+                            li: a#ho(href="/Home") Home
+                            li: a(href="/allarticles") All Articles
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                            li: a(href="/home11/"+user) #{user}
+            div#i1
+                p#i12 UNLIMITED!!<br>ONESTA'S Best pizza in rajarajeshwari nagar near gopalan arcade in bangalore...
+                a#link1(href="/card9") Read More!
+                img#piz(src="static/onetsa.jpg")
+                p#des Newly Released
+            p#to1 All Time Favourites
+            div#b1
+                a.card1#c1(href="/card1") 
+                    img.b1(src="static/cake.jpg")
+                    p#cb1 cheesy cake!
+                a.card1#c2(href="/card2")
+                    img.b1(src="static/cafe.jpg") 
+                    p.cb1 Cafeteria!
+                a.card1#c3(href="/card3") 
+                    img.b1(src="static/wowochina.jpg")
+                    p.cb1 Chinese!
+            div#top
+                p#to Top Five picks this week
+                - let v=0
+                for i in docs
+                    -v=v+1
+                    a(href="/article/"+i.atitle).t1
+                        img.tt1(src="static/"+i.aimage)
+                        p.tt2
+                            span.tc1 #{v}
+                            br
+                            span.tc2=i.atitle 
+                            br 
+                            span.tc3 Ratings: #{i.arating}
+                    if v==5
+                        -break
+        footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+            div#sub
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")

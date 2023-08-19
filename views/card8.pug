@@ -1,0 +1,72 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title INDRAPRASTA
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./card8.css
+        script(src="views/card8.js")
+    body 
+         div#bo 
+            div#main
+                div.na    
+                    nav 
+                        ul 
+                            li: a#ho(href="/Home") Home
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                div#content
+                    img#coni(src="static/troti.jpg")
+                    p#cont <u>INDRAPRASTA</u> <br>Food is good. Typical Bangalore Darshini taste :) Good restaurant in Vijayanagar apart from Shanthi sagar - for veggies..This Restaurant is near to Vijayanagar Metro Station. We had dinner with our family members the quality of the food is good but the service during the weekends are not up to the mark as we waited for more than 30 minutes after the order.ts Pure Veg Restaurant south Indian & North Indian dishes available.Best Place for breakfast in Vijayanagar.Service hall & self Service available. Must try is Vada, Very crispy and soft they serve hot. Dosa and all breakfast items are good and tasty.
+                    p#cont2 <u>Ambience:</u><br>To begin with the place is located in the busiest streets on Bangalore....residency road. The place has a very small parking....more or less fit for just 2-3 cars at a time. Secondly if you are a person looking for great ambience then I bet this place is not for you. The place has very dim lighting , not at all well done interiors and a few tables.But in my opinion this place best suites for bachelors or people who are wanting to try and taste the roti curry food for the first time. Blame it on the location of our table or the crowd. There was also an instance where the server refused to take back unopened bottles of ginger ale that we ordered.<br> <u>Quality and prices: </u><br>In my opinion, the fame and reputation of a restaurant do not depend on the variety only, but rely more on chefs ability and talent. So,  I prefer if the Cheesecake Studio restaurant becomes more careful about the high level talent of their chefs for every category.<br>Quality of the food was very good both north Indian and south Indian food good and serving staffs are very neat and maintain hyiegenic.Good Food with fair rates, Indraprastha is a very good option near Vijayanagar. Liked Udin vada specially.Clean, tasty, steamed delights in the morning. Add a dash of spice, coconut, hot tea.fresh air and great service. Two thumbs up!<br> <u>PRICE RANGES FROM 120-150 PER PERSON</u>
+                div#comments
+                    form(method="POST" action="/card8")
+                        p.txt Name: 
+                        input(type="text" required name="name" id="name")
+                        p.txt1 Comments: 
+                        input(type="text" required name="comm" id="comm")
+                        br
+                        input#sub(type='submit')
+                    -let v=0
+                    -da.reverse()
+                    for data1 in da
+                        div.comm    
+                            h5.nam= data1.name
+                            p.co= data1.con
+                        - v=v+1
+                        if v==8
+                            - break
+                div#like
+                    button#li(onclick="func()") &#10084;
+                    br 
+                    p#counter #{l1}
+         footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+    script. 
+        const update=document.getElementById("li")
+        function func(){
+            fetch("/like8",{method:'put'})
+            fetch("/card8",{method:'get'})
+            }

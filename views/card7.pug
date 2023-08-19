@@ -1,0 +1,72 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title MOMO CO
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./card7.css
+        script(src="views/card7.js")
+    body 
+         div#bo 
+            div#main
+                div.na    
+                    nav 
+                        ul 
+                            li: a#ho(href="/Home") Home
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                div#content
+                    img#coni(src="static/malaimomoo.jpg")
+                    p#cont <u>MOMO CO</u> <br>They serve the best momos in the town!I simply believe, the much popular Tandoori Momos in MOMO CO compared its worth it than Hunger strike are highly over rated. The reason being that I believe they taste only comes from the loads of cream it is tossed in when taken out from the Tandoor. I got a portion for a take away after hearing food things about this place. The packing though was decent. The chicken Momos were heavily loaded with cream. I also took away a Chicken shawarma which though was decent.They give the best taste you could ever have in your life!its bit costly but its worth it!.This place is so crowded you just have to sit on the divider and eat. The taste of creamy Momos just melts in your mouth and gives you the bliss of soft chicken and the goodness of Momos. Near rajajinagar metro station.
+                    p#cont2 <u>Ambience:</u><br>Crowded with people waiting for their cars to come out from the parking. I didn’t know that it’s a multistorey restaurant with a reception on the ground floor. One strange thing that happened was that I was told that I cannot take my bag inside and I was like that’s unusual. Since I had a laptop in my bag, I didn’t want to leave it at the reception, eventually, they agreed and let us in.You enter a completely different world the moment you exit the elevator. High ceilings, plenty of light, colourful sofas and a lot of greenery all over. I must appreciate the architects and the interior folks behind Makau. They deserve it. There’s a bar counter right in the middle with high chairs and tables. All along the walls, you have cosy sitting areas with lots of planters. Then there’s some sitting space on the top and at the bottom (where we sat). So in terms of seating space, there’s plenty of it. And it surely is an Instagrammable place with lots of spots that are perfect for your sunkissed photos.<br> <u>Quality and prices: </u><br>Restaurant do not depend on the variety only, but rely more on chefs ability and talent. So,  I prefer if the Cheesecake Studio restaurant becomes more careful about the high level talent of their chefs for every category.<br>Well, from the ambience point of view it surely is. Amazing interiors and a lot of insta-worthy spots. Perfect to get a good picture clicked to replace that age-old profile photo. Talking about the food, it’s pretty average. Our expectations were sky high but fell flat on most of the dishes. I’m not saying that the food is bad, but it wasn’t just what we expected from a medium oriented place like this.<br> <u>PRICE RANGES FROM 100-150 PER PERSON</u>
+                div#comments
+                    form(method="POST" action="/card7")
+                        p.txt Name: 
+                        input(type="text" required name="name" id="name")
+                        p.txt1 Comments: 
+                        input(type="text" required name="comm" id="comm")
+                        br
+                        input#sub(type='submit')
+                    -let v=0
+                    -da.reverse()
+                    for data1 in da
+                        div.comm    
+                            h5.nam= data1.name
+                            p.co= data1.con
+                        - v=v+1
+                        if v==8
+                            - break
+                div#like
+                    button#li(onclick="func()") &#10084;
+                    br 
+                    p#counter #{l1}
+         footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+    script. 
+        const update=document.getElementById("li")
+        function func(){
+            fetch("/like7",{method:'put'})
+            fetch("/card7",{method:'get'})
+            }

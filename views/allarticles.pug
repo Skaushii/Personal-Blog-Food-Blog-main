@@ -1,0 +1,90 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ABOUT ME
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./about.css
+    body 
+        div#main
+            div.na1    
+                    nav 
+                        ul 
+                            li: a(href="/Home") Home
+                            li: a#ho(href="/allarticles") All Articles
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                            li: a(href="/home11/"+user) #{user}
+            div#h3 
+                form(method="POST" action='/search' placeholder='Search')
+                    input#name(type='search' name='search' placeholder='Search....')
+            select#sort(onchange='getvalue()')
+                option(value='likes') Choose
+                option(value='likes') Likes
+                option(value='ratings') Ratings 
+                option(value='date') Date 
+            br
+            p#h51: u Posts
+            p#hh: | #{notfound}
+            -let number=doc.length
+            -let v,c=0,count=0
+            -v=0
+            <div id="arr1">
+            -v=0
+            while c<number/5
+                -c=c+1    
+                <div class="article">
+                    while v<number
+                        a(href="/article/"+doc[v].atitle).art
+                            img.image1(src="../static/"+doc[v].aimage)  
+                            p.cc #{doc[v].atitle} <br> Likes:#{doc[v].alikes}
+                        -v=v+1
+                        -if(v%5==0)
+                            </div>
+                            -break 
+            </div>
+        footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="../static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="../static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="../static/ilogo.png")
+    script. 
+        function Add()
+        {
+            fetch("/newarticle",{method:"get"})
+        }
+        function Logout()
+        {
+            fetch("/logout",{method:"put"})
+        }
+        function getvalue()
+        {
+         var selectv = document.getElementById('sort').value;
+         console.log(selectv)
+         fetch('/'+selectv,{method: 'GET'}).then(res => res.text())
+         .then(htmlStr => {
+            document.open();
+            document.write(htmlStr);
+            document.close();
+        })
+        ('html').css('min-width', screen.width);
+        }

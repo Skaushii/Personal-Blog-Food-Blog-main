@@ -1,0 +1,94 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+if (dwr.engine._getObject("LoginService") == undefined) {
+var p;
+
+p = {};
+
+
+
+
+
+
+p.findBySingleRecord = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'findBySingleRecord', arguments);
+};
+
+
+
+
+
+
+p.validateCSCUser = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'validateCSCUser', arguments);
+};
+
+
+
+
+
+
+
+p.validateUserPassword = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'validateUserPassword', arguments);
+};
+
+
+
+
+
+p.validateCaptcha = function(p0, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'validateCaptcha', arguments);
+};
+
+
+
+
+
+
+
+
+p.validateOtps = function(p0, p1, p2, p3, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'validateOtps', arguments);
+};
+
+
+
+
+
+
+
+
+
+
+p.getOtpCodeForRegistration = function(p0, p1, p2, p3, p4, p5, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'getOtpCodeForRegistration', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.generateOtpForLockProfile = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'generateOtpForLockProfile', arguments);
+};
+
+
+
+
+
+
+
+p.validateOtpForLockProfile = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'LoginService', 'validateOtpForLockProfile', arguments);
+};
+
+dwr.engine._setObject("LoginService", p);
+}
+})();
+

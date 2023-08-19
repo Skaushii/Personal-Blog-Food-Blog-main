@@ -1,0 +1,73 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{docs.atitle}
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./card1.css
+    body 
+         div#bo 
+            div#main
+                div.na    
+                    nav 
+                        ul 
+                            li: a(href="/Home") Home
+                            li: a(href="/allarticles") All Articles
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                            li: a#ho(href="/home11/"+user) #{user}
+                div#content
+                    img#coni(src="../static/"+docs.aimage)
+                    p#cont <u>#{docs.atitle}</u> <br>#{docs.atpara}
+                    p#cont2 <u>Ambience:</u><br>#{docs.aambience}<br> <u>Quality: </u><br>#{docs.aquality}<br><u>Price: </u><br>#{docs.aprice}<br> <u>Rating:</u><br> #{docs.arating}
+                div#comments
+                    form(id="get" method="POST" action="/card/"+docs.atitle)
+                        p.txt Name: 
+                        input(type="text" required name="name" id="name")
+                        p.txt1 Comments: 
+                        input(type="text" required name="comm" id="comm")
+                        br
+                        input#sub(type='submit')
+                    -let v=0
+                    -comments.reverse()
+                    for data1 in comments
+                        div.comm    
+                            h5.nam= data1.name
+                            p.co= data1.com 
+                        - v=v+1
+                        if v==8
+                            - break
+                div#like
+                    button#li(onclick="func()") &#10084;
+                    br 
+                    p#counter #{l1}
+         footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+                    li: a(href="/home11/"+user) #{user}
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+    script. 
+        let update=document.getElementById("get").action
+        function func(){
+            fetch(`/likes/${update}`,{method:'get'})
+            }

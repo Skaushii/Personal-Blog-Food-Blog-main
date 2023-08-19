@@ -1,0 +1,61 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ABOUT ME
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./contact.css
+        script(src="views/card1.js")
+    body 
+        div#main
+            div.na    
+                    nav 
+                        ul 
+                            li: a(href="/Home") Home
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                            li: a#ho(href="/"+user) #{user}
+            div#content1
+                form#info(method="POST" action="/upload" enctype  ="multipart/form-data")
+                    label.txtt(for="atitle") Title of the article:  
+                    input.ii(type="text" required id='atitle' name="atitle")
+                    label.txtt(for="atpara") First paragraph: 
+                    textarea.ii(required id='atpara' name="atpara" rows="6" col="100" maxlength="600")
+                    label.txtt(for="ambience") Ambience: 
+                    textarea(required id='ambience' name="ambience" rows="6" col="100")
+                    label.txtt(for="quality") Quality: 
+                    textarea(required id='quality' name="quality" rows="6" col="100")
+                    label.txtt(for="price") Price: 
+                    textarea(required id='price' name="price" rows="6" col="100")
+                    label.txtt(for="rating") Rating: 
+                    input(type="text" required id="rating" name="rating")
+                    label.txtt(for="address") Address: 
+                    textarea(required id='address' name="address" rows="6" col="100")
+                    label.txtt(for="image") Upload Image: 
+                    input(type="file" required name="image" id="image")
+                    input#sub(type="submit")
+        footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+                    li: a(href="/"+user) #{user}
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")

@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ABOUT ME
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./contact.css
+        script(src="views/card1.js")
+    body 
+        div#main
+            div.na    
+                    nav 
+                        ul 
+                            li: a(href="/Home") Home
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                            li: a#ho(href="/"+user) #{user}
+            div#content
+                form#info(method="POST" action="/login")
+                    label.txtt(for="userid") UserID: 
+                    input(type="text" required id='userid' name="userid")
+                    label.txtt(for="password") Password: 
+                    input(type="text" required id='password' name="password")
+                    a(href="/register") New User? Click here to register
+                    input#sub(type="submit")
+        footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+                    li: a(href="/"+user) #{user}
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")

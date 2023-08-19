@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    margin:0px;
+    padding:0px;
+    color:white;
+    font-family:"lobster";
+
+
+}
+.main{
+    display:grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows:  48px repeat(23,1fr);
+    background-color:rgb(40, 38, 38,0.6);
+    width:1423px;
+    height:100vh;
+    background-size:cover;
+    background-position: center center;
+   
+}
+
+#vid1{
+    overflow: hidden;
+    position:fixed;
+    z-index:-99;
+    width:100%;
+    height:100%;
+   
+}
+
+a{
+    text-decoration: none;
+}
+.na{
+    padding-top: 10px;
+    margin-left: 25px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    grid-column: 4/13;
+    grid-row: 1/2;
+    background-color: rgba(18, 2, 2, 0.2);
+    width: fit-content;
+    font-family: "Pt Sans Narrow";
+
+}
+#help{
+    grid-row: 12/20;
+    grid-column: 2/9;
+    margin-left:20px;
+    font-size: 27px;
+    margin-top:10px;
+    color:rgba(255, 255, 255, 0.75);
+}
+nav ul{
+    display:flex;
+    flex-direction:row;
+    list-style-type:None;
+    justify-content: center;
+    font-size: 24px;
+
+}
+nav ul li{
+    margin:0px 38px;
+    
+
+}
+#hero {
+    grid-row: 10/13;
+    grid-column: 2/11;
+    font-size: 402%;
+    margin-bottom:18px;
+    color:rgb(255, 255, 255);
+    
+ 
+}
+span{
+    background-image: url("https://i.ndtvimg.com/i/2017-06/strawberry_620x350_41496663450.jpg");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: an 3s infinite;
+    animation-direction:alternate;
+}
+@keyframes an{
+    0%{
+        background-position: 10%;
+    }
+    25%{
+        background-position: 20%;
+    }
+    50%{
+        background-position: 30%;
+    }
+    100%{
+        background-position: 40%;
+    }
+}
+li{
+    transition:all 0.1s ease-in 0s;
+}
+li a{
+    transition:all 0.2s ease-in 0s;
+    color:rgb(255, 255, 255);
+    text-shadow: 3px 3px 2px rgb(0, 0, 0);
+}
+li a:hover{
+    color:rgb(255, 255, 255);
+    text-decoration:overline;
+    text-shadow: 5px 5px 2px rgb(0, 0, 0);
+}
+li:hover{
+    font-size:25px;
+    color:aqua;
+}
+
+#cta{
+    grid-column: 2/6;
+    grid-row: 13/17;
+    margin-top: 71px;
+    color: rgb(231, 20, 20);
+    font-size: 35px;
+    transition: all 0.1s ease-in 0s;
+    text-shadow: 5px 5px 2px rgb(0 0 0);
+    margin-left:17px;
+}
+
+#cta:hover{
+    color:rgb(248, 0, 0);
+    font-size:38px;
+    text-decoration:solid;
+
+}

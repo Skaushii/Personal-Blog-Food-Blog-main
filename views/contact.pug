@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ABOUT ME
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./contact.css
+        script(src="views/card1.js")
+    body 
+        div#main
+            div.na    
+                    nav 
+                        ul 
+                            li: a(href="/Home") Home
+                            li: a(href="/allarticles") All Articles
+                            li: a(href="/about") About Me
+                            li: a#ho(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                            li: a(href="/home11/"+user) #{user}
+            div#content
+                form#info(method="POST" action="/contactus")
+                    label.txtt(for="name") Name: 
+                    input(type="text" required id='name' name="name")
+                    label.txtt(for="email") Email: 
+                    input(type="email" required id='email' name="email")
+                    label.txtt(for="name") Phone: 
+                    input(type="text" required id='phone' name="phone")
+                    label.txtt(for="message") Your Message: 
+                    textarea(required id='message' name="message" rows="6" col="100")
+                    input#sub(type="submit")
+        footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")

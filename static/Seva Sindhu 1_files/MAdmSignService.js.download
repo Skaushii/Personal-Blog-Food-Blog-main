@@ -1,0 +1,53 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+if (dwr.engine._getObject("MAdmSignService") == undefined) {
+var p;
+
+p = {};
+
+
+
+
+
+
+p.findUserRecord = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'MAdmSignService', 'findUserRecord', arguments);
+};
+
+
+
+
+
+
+
+p.validateCaptchaCode = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'MAdmSignService', 'validateCaptchaCode', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.getUserListOfTaskAssigned = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'MAdmSignService', 'getUserListOfTaskAssigned', arguments);
+};
+
+
+
+
+
+
+
+p.getUserListOfTask = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'MAdmSignService', 'getUserListOfTask', arguments);
+};
+
+dwr.engine._setObject("MAdmSignService", p);
+}
+})();
+

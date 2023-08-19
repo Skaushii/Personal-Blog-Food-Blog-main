@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ABOUT ME
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./about.css
+        script(src="views/card1.js")
+    body 
+        div#main
+            div.na    
+                    nav 
+                        ul 
+                            li: a(href="/Home") Home
+                            li: a(href="/allarticles") All Articles
+                            li: a#ho(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                            li: a(href="/home11/"+user) #{user}
+            div#content
+                img#coni(src="static/cowimg.jpg")
+                p#cont <u>ABOUT ME :</u> <br>This post is for food bloggers and food blog readers alike! My hope here is just to bring up a little think/talk/virtual coffee date sesh about what food bloggers  Food bloggers, let’s think about what you like to write about, and food blog readers, let’s think about what you like to read about, because that’s sort of the end goal here. A matchy match on both sides of the story.Every once in a while, I sit down at the computer to write a post and my brain is literally empty. Zero words. No thoughts. BLEH. And by every once in a while I mean all the time lately. Usually I am overflowing with words and thoughts and ideas and random stories that I feel an urgent need to share on a food blog (?), but somehow that just *poof* disappears when I try to write at times like 11pm or 5am, which has kind of been the norm as of lately.<br>Food is love and it is better than love if you think about it! I may live my days only with the hope of being able to taste new food! #newfood.I have made a rule where I present myself with some food of my choice every time I feel I have pulled off something great and I feel the need to be awarded!
+        footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")

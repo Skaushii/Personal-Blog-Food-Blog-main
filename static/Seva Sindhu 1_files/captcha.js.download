@@ -1,0 +1,6 @@
+function captchaResetImage(imageId, focusId){
+	var img = document.getElementById(imageId);
+	img.src = 'jcaptcha?v'+new Date().getTime();
+	var txtValue = document.getElementById(focusId);
+	txtValue.focus();
+}

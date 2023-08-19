@@ -1,0 +1,72 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ONESTA
+        link(rel="icon",href="https://freepngimg.com/thumb/strawberry/1-strawberry-png-images.png",type="image/png")
+        style 
+            include ./card9.css
+        script(src="views/card9.js")
+    body 
+         div#bo 
+            div#main
+                div.na    
+                    nav 
+                        ul 
+                            li: a#ho(href="/Home") Home
+                            li: a(href="/about") About Me
+                            li: a(href="/contact") Contact Me 
+                            li: a(href="/Home#footer") Subscribe
+                div#content
+                    img#coni(src="static/onn.jpg")
+                    p#cont <u>ONESTA</u> <br>Onesta has a wide variety of pizza and dessert choices in their menu, hence their unlimited pizza deal for 499 makes the day for any pizza lover. They also have the unlimited menu deal for 650 which includes lasagna, small bites and starters apart from pizzas and desserts.I liked the restaurant and probably i will visit again too but i will not take pizza. Pizza is below average and not worth buying. I think problem is with sauce they use, don't know.Nice place for unlimited pizza deal along with appetizers, pasta and dessert.t's the best place in Bangalore to eat unlimited pizzas and desserts while enjoying the excellent ambience the place offers. The pizzas, however, don't taste that good. Veg pizzas are better than the non-veg ones. The service is fast and good, electronically maintained. The Veg Lasagna doesn't taste that great. The pizza size in the unlimited scheme is a regular one. The desserts are awesome too. Overall, a good and a MUST VISIT place if one comes to Bangalore.
+                    p#cont2 <u>Ambience:</u><br>Tasty food, Nice ambiance, Good people, and Reasonably priced food joint.The ambiance was okay especially on the terrace where you can be seated next to the tree shade. They have valet parking which initially was a plus but they generally park your vehicles on the road itself.It was an open air restraunt with load many plants hovering around which gave it more pleasant surrounding. Service is okay, not really great as the waiters were not in the their best behavior. Ambiance is good with a choice of rooftop ambiance.Nice place for unlimited pizza deal along with appetizers, pasta and dessert. Staff were friendly and courteous which along with a nice casual ambience made it a great experience. They also provide high chairs for kids so thats makes it a good family option.<br> <u>Quality and prices: </u><br> The quality was really great and the quantity was unlimited. That was what makes it great place to eat pizza. I also liked the bacon wrapped prawns, very soft and juicy. Overall great place.The portion size and price of the menu has been set in a manner which prompts you to taste as many dishes as possible. The food was tasty especially the pizzas. Lasagna was average and lacked the depth and the variety of vegetables/meat it should ideally have.Service was good. Tried lasagne as well which was good. Dont hope that in such tini tiny prices they will offer to good quantity. pizzas were of palm size so was lasagne. But again its a must try.<br> <u>PRICE RANGES FROM 300-400 PER PERSON</u>
+                div#comments
+                    form(method="POST" action="/card9")
+                        p.txt Name: 
+                        input(type="text" required name="name" id="name")
+                        p.txt1 Comments: 
+                        input(type="text" required name="comm" id="comm")
+                        br
+                        input#sub(type='submit')
+                    -let v=0
+                    -da.reverse()
+                    for data1 in da
+                        div.comm    
+                            h5.nam= data1.name
+                            p.co= data1.con
+                        - v=v+1
+                        if v==8
+                            - break
+                div#like
+                    button#li(onclick="func()") &#10084;
+                    br 
+                    p#counter #{l1}
+         footer#footer
+            div#ql
+                p#q Quick Links
+                ul#qlinks
+                    li: a.hon(href="/Home") Home
+                    li: a.hon(href="/about") About Me
+                    li: a.hon(href="/contact") Contact Me 
+                    li: a.hon(href="/Home#footer") Subscribe
+            div
+                p#subh Please enter your email to get timely updates on new content!!! 
+                form#email(method="POST" action="/email" placeholder="Enter your email")
+                    input#em(type="email", name="em")
+                    input#esu(type="submit") 
+                div#sm 
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+                    a.lin(href='#')
+                        img.logo(src="static/ilogo.png")
+    script. 
+        const update=document.getElementById("li")
+        function func(){
+            fetch("/like9",{method:'put'})
+            fetch("/card9",{method:'get'})
+            }
